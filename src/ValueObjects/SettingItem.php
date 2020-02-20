@@ -2,6 +2,7 @@
 
 namespace WesLal\NovaSettingsTool\ValueObjects;
 
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Date;
@@ -334,7 +335,7 @@ final class SettingItem implements Serializable, JsonSerializable
      */
     private function getNameUsingKey() : string
     {
-        return title_case(str_replace('_', ' ',snake_case($this->getKey())));
+        return title_case(str_replace('_', ' ',Str::snake($this->getKey())));
     }
 
     /**
